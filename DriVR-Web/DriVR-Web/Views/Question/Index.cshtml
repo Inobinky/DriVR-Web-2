@@ -1,0 +1,68 @@
+﻿@model IEnumerable<DriVR_Web.Models.QuestionInfo>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vragen overzicht</title>
+</head>
+
+<body>
+    <h1>
+        Vragen overzicht
+    </h1>
+
+    <p>
+        <a asp-action="Create">Creeër nieuwe vraag</a>
+    </p>
+
+    @*For displaying question info*@
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuestionText)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnswerOne)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnswerTwo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnswerThree)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var question in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => question.QuestionText)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => question.AnswerOne)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => question.AnswerTwo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => question.AnswerThree)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@question.ID">Wijzigen</a>
+                        <a asp-action="Details" asp-route-id="@question.ID">Details</a>
+                        <a asp-action="Delete" asp-route-id="@question.ID">Verwijder</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿@model DriVR_Web.Models.QuestionInfo
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<div>
+    <h4>Vraag details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <h4>@Html.DisplayNameFor(model => model.QuestionText):</h4>
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.QuestionText)
+        </dt>
+        <dt>
+            <h4>@Html.DisplayNameFor(model => model.AnswerOne):</h4>
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.AnswerOne)
+        </dt>
+        <dt>
+            <h4>@Html.DisplayNameFor(model => model.AnswerTwo):</h4>
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.AnswerTwo)
+        </dt>
+        <dt>
+            <h4>@Html.DisplayNameFor(model => model.AnswerThree):</h4>
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.AnswerThree)
+        </dt>
+    </dl>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID"/>
+        <input type="submit" value="Verwijderen" class="btn btn-danger"/>
+        <a asp-action="Index">Terug naar overzicht</a>
+    </form>
+</div>

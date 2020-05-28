@@ -1,0 +1,48 @@
+﻿@model DriVR_Web.Models.QuestionInfo
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Vraag aanmaken</h1>
+<h3>Vraag Entry</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="QuestionText" class="control-label"></label>
+                <input asp-for="QuestionText" class="form-control" />
+                <span asp-validation-for="QuestionText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnswerOne" class="control-label"></label>
+                <input asp-for="AnswerOne" class="form-control" />
+                <span asp-validation-for="AnswerOne" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnswerTwo" class="control-label"></label>
+                <input asp-for="AnswerTwo" class="form-control" />
+                <span asp-validation-for="AnswerTwo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnswerThree" class="control-label"></label>
+                <input asp-for="AnswerThree" class="form-control" />
+                <span asp-validation-for="AnswerThree" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Vraag aanmaken" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Terug naar overzicht</a>
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

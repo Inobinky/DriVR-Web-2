@@ -1,0 +1,40 @@
+﻿@model DriVR_Web.Models.QuestionInfo
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>Vraag details</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <h4>@Html.DisplayNameFor(model => model.QuestionText):</h4>
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.QuestionText)
+            </dt>
+            <dt>
+                <h4>@Html.DisplayNameFor(model => model.AnswerOne):</h4>
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.AnswerOne)
+            </dt>
+            <dt>
+                <h4>@Html.DisplayNameFor(model => model.AnswerTwo):</h4>
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.AnswerTwo)
+            </dt>
+            <dt>
+                <h4>@Html.DisplayNameFor(model => model.AnswerThree):</h4>
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.AnswerThree)
+            </dt>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.ID">Wijzigen</a>
+        <a asp-action="Index" asp-route-id="@Model.ID">Terug naar overzicht</a>
+    </div>
