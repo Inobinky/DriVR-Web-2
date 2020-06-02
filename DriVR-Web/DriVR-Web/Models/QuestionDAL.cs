@@ -81,7 +81,7 @@ namespace DriVR_Web.Models
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("SP_UpdateQuestion", con);
+                SqlCommand cmd = new SqlCommand("SP_DeleteQuestion", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@QuestionId", questionId);
