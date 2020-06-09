@@ -2,17 +2,19 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using DriVR_Web.Data;
+using DriVR_Web.Logic;
 
 namespace DriVR_Web.Controllers
 {
     public class QuestionController : Controller
     {
         QuestionDAL questionDAL = new QuestionDAL();
+        QuestionContainer questionContainer = new QuestionContainer();
 
         public IActionResult Index()
         {
-            List<QuestionInfo> questionList = new List<QuestionInfo>();
-            questionList = questionDAL.GetAllQuestions().ToList();
+            List<Question> questionList = questionContainer.GetAllQuestions();
             return View(questionList);
         }
 
@@ -24,7 +26,7 @@ namespace DriVR_Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind] QuestionInfo objQuestion)
+        public IActionResult Create([Bind] QuestionDTO objQuestion)
         {
             if (ModelState.IsValid)
             {
@@ -38,14 +40,13 @@ namespace DriVR_Web.Controllers
         public IActionResult Edit(int? id)
         {
             if (id == null) { return NotFound(); }
-            QuestionInfo question = questionDAL.GetQuestionById(id);
-            if (question == null) { return NotFound(); }
+            QuestionDTO question = questionDAL.GetQuestionById(id);
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(int? id, [Bind] QuestionInfo question)
+        public IActionResult Edit(int? id, [Bind] QuestionDTO question)
         {
             if (id == null) { return NotFound(); }
             if (ModelState.IsValid)
@@ -60,16 +61,14 @@ namespace DriVR_Web.Controllers
         public IActionResult Details(int? id)
         {
             if (id == null) { return NotFound(); }
-            QuestionInfo question = questionDAL.GetQuestionById(id);
-            if (question == null) { return NotFound(); }
+            QuestionDTO question = questionDAL.GetQuestionById(id);
             return View(question);
         }
 
         public IActionResult Delete(int? id)
         {
             if (id == null) { return NotFound(); }
-            QuestionInfo question = questionDAL.GetQuestionById(id);
-            if (question == null) { return NotFound(); }
+            QuestionDTO question = questionDAL.GetQuestionById(id);
             return View(question);
         }
 

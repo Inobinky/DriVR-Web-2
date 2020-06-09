@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace DriVR_Web.Models
+namespace DriVR_Web.Data
 {
     public class QuestionDAL
     {
         private string connectionString = @"Data Source=(localdb)\LocalDBDrivr;Initial Catalog=DrivrDBLocal;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         // To get all questions
-        public List<QuestionInfo> GetAllQuestions()
+        public List<QuestionDTO> GetAllQuestions()
         {
-            List<QuestionInfo> questionList = new List<QuestionInfo>();
+            List<QuestionDTO> questionList = new List<QuestionDTO>();
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand("SP_GetAllQuestion", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
                 con.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    QuestionInfo question = new QuestionInfo();
+                    QuestionDTO question = new QuestionDTO();
 
                     question.ID = Convert.ToInt32(dr["QuestionId"].ToString());
                     question.QuestionText = dr["QuestionText"].ToString();
@@ -38,7 +38,7 @@ namespace DriVR_Web.Models
         }
 
         // To insert question
-        public void AddQuestion(QuestionInfo question)
+        public void AddQuestion(QuestionDTO question)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -57,7 +57,7 @@ namespace DriVR_Web.Models
         }
 
         // To update question
-        public void UpdateQuestion(QuestionInfo question)
+        public void UpdateQuestion(QuestionDTO question)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -93,14 +93,14 @@ namespace DriVR_Web.Models
         }
 
         // Get question by Id
-        public QuestionInfo GetQuestionById(int? questionId)
+        public QuestionDTO GetQuestionById(int? questionId)
         {
-            QuestionInfo question = new QuestionInfo();
+            QuestionDTO question = new QuestionDTO();
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand("SP_GetQuestionById", con);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@QuestionId", questionId);
                 con.Open();
                 SqlDataReader dr = cmd.ExecuteReader();

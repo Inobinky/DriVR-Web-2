@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriVR-Web", "DriVR-Web\DriVR-Web.csproj", "{7603FA1A-9AA7-4214-B7D2-840EBCCEA4B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DriVR-Web", "DriVR-Web\DriVR-Web.csproj", "{7603FA1A-9AA7-4214-B7D2-840EBCCEA4B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{5835600B-C543-45ED-A700-FA9A158F730F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{5203FFE2-372E-418D-949A-01FF562E590B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{7603FA1A-9AA7-4214-B7D2-840EBCCEA4B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7603FA1A-9AA7-4214-B7D2-840EBCCEA4B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7603FA1A-9AA7-4214-B7D2-840EBCCEA4B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5835600B-C543-45ED-A700-FA9A158F730F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5835600B-C543-45ED-A700-FA9A158F730F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5835600B-C543-45ED-A700-FA9A158F730F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5835600B-C543-45ED-A700-FA9A158F730F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5203FFE2-372E-418D-949A-01FF562E590B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5203FFE2-372E-418D-949A-01FF562E590B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5203FFE2-372E-418D-949A-01FF562E590B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5203FFE2-372E-418D-949A-01FF562E590B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

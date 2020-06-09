@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
+using DriVR_Web.Data;
 
-namespace DriVR_Web.Models
+namespace DriVR_Web.Logic
 {
-    public class QuestionInfo
+    public class Question
     {
         public int ID { get; set; }
         [Required]
@@ -17,5 +17,14 @@ namespace DriVR_Web.Models
         public string AnswerTwo { get; set; }
         [Required]
         public string AnswerThree { get; set; }
+
+        public Question(QuestionDTO questionDTO)
+        {
+            ID = questionDTO.ID;
+            QuestionText = questionDTO.QuestionText;
+            AnswerOne = questionDTO.AnswerOne;
+            AnswerTwo = questionDTO.AnswerTwo;
+            AnswerThree = questionDTO.AnswerThree;
+        }
     }
 }
