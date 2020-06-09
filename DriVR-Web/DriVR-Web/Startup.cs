@@ -50,7 +50,7 @@ namespace DriVR_Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Question}/{action=Index}/{id?}");
+                    pattern: "{controller=Question}/{action=Overview}/{id?}");
             });
         }
     }

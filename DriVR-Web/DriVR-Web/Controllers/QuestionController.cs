@@ -12,7 +12,7 @@ namespace DriVR_Web.Controllers
         QuestionDAL questionDAL = new QuestionDAL();
         QuestionContainer questionContainer = new QuestionContainer();
 
-        public IActionResult Index()
+        public IActionResult Overview()
         {
             List<Question> questionList = questionContainer.GetAllQuestions();
             return View(questionList);
