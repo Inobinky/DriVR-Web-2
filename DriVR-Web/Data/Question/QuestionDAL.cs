@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using DriVR_Web.Data.Interface;
 
-namespace DriVR_Web.Data
+namespace DriVR_Web.Data 
 {
-    public class QuestionDAL
+    public class QuestionDAL : iQuestionDAL, iQuestionContainerDAL
     {
         private string connectionString = @"Data Source=(localdb)\LocalDBDrivr;Initial Catalog=DrivrDBLocal;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 

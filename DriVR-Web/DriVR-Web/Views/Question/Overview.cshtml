@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DriVR_Web.Logic.Question>
+﻿@model IEnumerable<DriVR_Web.Data.QuestionDTO>
 @{
     ViewBag.Title = "Overview";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -18,7 +18,7 @@
     </h1>
 
     <p>
-        <a asp-action="Create">Creeër nieuwe vraag</a>
+        <a asp-action="Create">Nieuwe vraag aanmaken</a>
     </p>
 
     @*For displaying question info*@
@@ -26,16 +26,16 @@
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.QuestionText)
+                    Vraag tekst
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.AnswerOne)
+                    Antwoord 1
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.AnswerTwo)
+                    Antwoord 2
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.AnswerThree)
+                    Antwoord 3
                 </th>
             </tr>
         </thead>

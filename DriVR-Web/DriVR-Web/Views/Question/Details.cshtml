@@ -1,4 +1,4 @@
-﻿@model DriVR_Web.Logic.Question
+﻿@model DriVR_Web.Data.QuestionDTO;
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -36,5 +36,5 @@
     </div>
     <div>
         <a asp-action="Edit" asp-route-id="@Model.ID">Wijzigen</a>
-        <a asp-action="Index" asp-route-id="@Model.ID">Terug naar overzicht</a>
+        <a asp-action="Overview" asp-route-id="@Model.ID">Terug naar overzicht</a>
     </div>

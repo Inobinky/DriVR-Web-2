@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DriVR-Web", "DriVR-Web\DriVR-Web.csproj", "{7603FA1A-9AA7-4214-B7D2-840EBCCEA4B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{5835600B-C543-45ED-A700-FA9A158F730F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj", "{5835600B-C543-45ED-A700-FA9A158F730F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{5203FFE2-372E-418D-949A-01FF562E590B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{5203FFE2-372E-418D-949A-01FF562E590B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
