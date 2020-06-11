@@ -8,17 +8,26 @@ namespace DriVR_Web.Logic
 {
     public class QuestionContainer
     {
+        iQuestionContainerDAL iQuestionContainerDal;
+        iQuestionDAL iQuestionDal;
+        QuestionDTO questionDTO;
+
         public List<Question> GetAllQuestions()
         {
-            QuestionDAL questionDAL = new QuestionDAL();
             List<Question> result = new List<Question>();
 
-            foreach (QuestionDTO questionDto in questionDAL.GetAllQuestions())
+            foreach (QuestionDTO questionDto in iQuestionContainerDal.GetAllQuestions())
             {
                 Question question = new Question(questionDto);
                 result.Add(question);
             }
 
+            return result;
+        }
+
+        public Question GetQuestionById(int? questionId)
+        {
+            Question result = new Question(iQuestionContainerDal.GetQuestionById(questionId));
             return result;
         }
     }

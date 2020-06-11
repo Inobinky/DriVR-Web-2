@@ -26,5 +26,10 @@ namespace DriVR_Web.Logic
             AnswerTwo = questionDTO.AnswerTwo;
             AnswerThree = questionDTO.AnswerThree;
         }
+
+
+
+        //JUST PUT EDIT AND SUCH HERE? JUST LIKE HOW WE CALLED 'CORE' IN THE MODEL IN THE POSTKAMER APP
+        // SEE 'Update(...)' in the diagram picture.
     }
 }

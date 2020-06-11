@@ -10,7 +10,7 @@ namespace DriVR_Web.Controllers
 {
     public class QuestionController : Controller
     {
-        QuestionDAL questionDal = new QuestionDAL(); //TODO: TURN THEM ALL INTO INTERF
+        iQuestionDAL iQuestionDal = new QuestionDAL(); //TODO: TURN THEM ALL INTO INTERF
         iQuestionContainerDAL iQuestionContainerDal = new QuestionDAL();
         public QuestionDTO questionDTO;
 
@@ -32,7 +32,7 @@ namespace DriVR_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                questionDal.AddQuestion(objQuestion);
+                iQuestionDal.AddQuestion(objQuestion);
                 return RedirectToAction("Overview");
             }
 
@@ -42,7 +42,7 @@ namespace DriVR_Web.Controllers
         public IActionResult Edit(int? id)
         {
             if (id == null) { return NotFound(); }
-            QuestionDTO question = questionDal.GetQuestionById(id);
+            QuestionDTO question = iQuestionContainerDal.GetQuestionById(id);
             return View();
         }
 
@@ -53,24 +53,24 @@ namespace DriVR_Web.Controllers
             if (id == null) { return NotFound(); }
             if (ModelState.IsValid)
             {
-                questionDal.UpdateQuestion(question);
+                iQuestionDal.UpdateQuestion(question);
                 return RedirectToAction("Overview");
             }
-            return View(questionDal);
+            return View(iQuestionDal);
         }
 
         [HttpGet]
         public IActionResult Details(int? id)
         {
             if (id == null) { return NotFound(); }
-            QuestionDTO question = questionDal.GetQuestionById(id);
+            QuestionDTO question = iQuestionContainerDal.GetQuestionById(id);
             return View(question);
         }
 
         public IActionResult Delete(int? id)
         {
             if (id == null) { return NotFound(); }
-            QuestionDTO question = questionDal.GetQuestionById(id);
+            QuestionDTO question = iQuestionContainerDal.GetQuestionById(id);
             return View(question);
         }
 
@@ -78,7 +78,7 @@ namespace DriVR_Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteQuestion(int? id)
         {
-            questionDal.DeleteQuestion(id);
+            iQuestionDal.DeleteQuestion(id);
             return RedirectToAction("Overview");
         }
     }
