@@ -9,6 +9,7 @@ namespace DriVR_Web.Logic
     public class QuestionContainer
     {
         iQuestionContainerDAL iQuestionContainerDal = new QuestionDAL();
+        iQuestionDAL iQuestionDal = new QuestionDAL();
         QuestionDTO questionDTO;
 
         public List<Question> GetAllQuestions()
@@ -31,11 +32,20 @@ namespace DriVR_Web.Logic
             return result;
         }
 
+        public void AddQuestion(Question questionDTO)
+        {
+            QuestionDTO dto;
+            dto.ID = questionDTO.ID;
+            dto.QuestionText = questionDTO.QuestionText;
+            dto.AnswerOne = questionDTO.AnswerOne;
+            dto.AnswerTwo = questionDTO.AnswerTwo;
+            dto.AnswerThree = questionDTO.AnswerThree;
+            iQuestionDal.AddQuestion(dto);
+        }
+
         public void UpdateQuestion(Question question)
         {
             QuestionDTO questionDTO;
-            iQuestionDAL iQuestionDal = new QuestionDAL();
-
             questionDTO.ID = question.ID;
             questionDTO.QuestionText = question.QuestionText;
             questionDTO.AnswerOne = question.AnswerOne;

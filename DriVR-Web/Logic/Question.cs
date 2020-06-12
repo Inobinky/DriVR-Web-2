@@ -32,21 +32,5 @@ namespace DriVR_Web.Logic
             AnswerTwo = questionDTO.AnswerTwo;
             AnswerThree = questionDTO.AnswerThree;
         }
-
-        public void AddQuestion(Question question)
-        {
-            //question = new Question(question);
-            //iQuestionDal.AddQuestion(question);
-        }
-
-        //public void Update(Question question)
-        //{
-        //    ID = question.ID;
-        //    QuestionText = question.QuestionText;
-        //    AnswerOne = question.AnswerOne;
-        //    AnswerTwo = question.AnswerTwo;
-        //    AnswerThree = question.AnswerThree;
-        //    iQuestionDal.UpdateQuestion(this);
-        //}
     }
 }

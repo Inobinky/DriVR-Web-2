@@ -32,13 +32,7 @@ namespace DriVR_Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                QuestionDTO dto;
-                dto.ID = objQuestion.ID;
-                dto.QuestionText = objQuestion.QuestionText;
-                dto.AnswerOne = objQuestion.AnswerOne;
-                dto.AnswerTwo = objQuestion.AnswerTwo;
-                dto.AnswerThree = objQuestion.AnswerThree;
-                QuestionDal.AddQuestion(dto);
+                questionContainer.AddQuestion(objQuestion);
                 return RedirectToAction("Overview");
             }
 
