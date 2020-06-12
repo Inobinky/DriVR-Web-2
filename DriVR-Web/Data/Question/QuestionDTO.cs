@@ -8,14 +8,14 @@ namespace DriVR_Web.Data
 {
     public struct QuestionDTO
     {
-        public int ID { get; set; }
+        public int ID;
         [Required]
-        public string QuestionText { get; set; }
+        public string QuestionText;
         [Required]
-        public string AnswerOne { get; set; }
+        public string AnswerOne;
         [Required]
-        public string AnswerTwo { get; set; }
+        public string AnswerTwo;
         [Required]
-        public string AnswerThree { get; set; }
+        public string AnswerThree;
     }
 }
