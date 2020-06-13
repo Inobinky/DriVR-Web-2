@@ -29,6 +29,9 @@
                         Vraag tekst
                     </th>
                     <th>
+                        Afbeelding
+                    </th>
+                    <th>
                         Antwoord 1
                     </th>
                     <th>
@@ -49,6 +52,9 @@
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => question.QuestionText)
+                        </td>
+                        <td>
+                            <a href="@Html.DisplayFor(modelItem => question.ImageUrl)" target="_blank">Bekijken</a>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => question.AnswerOne)
