@@ -1,0 +1,73 @@
+﻿@model IEnumerable<DriVR_Web.Logic.Question>
+@{
+    ViewBag.Title = "Question Session";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nieuwe vragen sessie gestart!</title>
+</head>
+
+<body>
+    <h1>
+        Nieuwe vragen sessie gestart!
+    </h1>
+
+    <p>Veel succes!</p>
+
+    <form asp-action="FinishSession">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Vraag tekst
+                    </th>
+                    <th>
+                        Antwoord 1
+                    </th>
+                    <th>
+                        Antwoord 2
+                    </th>
+                    <th>
+                        Antwoord 3
+                    </th>
+                    <th>
+                        Jouw antwoord
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var question in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => question.QuestionText)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => question.AnswerOne)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => question.AnswerTwo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => question.AnswerThree)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@question.ID">Wijzigen</a><br />
+                            <a asp-action="Details" asp-route-id="@question.ID">Details</a><br />
+                            <p><a asp-action="Delete" asp-route-id="@question.ID">Verwijder</a></p>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>

@@ -9,9 +9,6 @@ namespace DriVR_Web.Logic
 {
     public class Question
     {
-        iQuestionContainerDAL iQuestionContainerDal;
-        iQuestionDAL iQuestionDal;
-
         public int ID { get; set; }
         [Required]
         public string QuestionText { get; set; }
@@ -21,6 +18,10 @@ namespace DriVR_Web.Logic
         public string AnswerTwo { get; set; }
         [Required]
         public string AnswerThree { get; set; }
+        [Required]
+        public int CorrectAnswer { get; set; }
+        [Required]
+        public string ImageUrl { get; set; }
 
         public Question() { } // Default constructor
 
@@ -31,6 +32,8 @@ namespace DriVR_Web.Logic
             AnswerOne = questionDTO.AnswerOne;
             AnswerTwo = questionDTO.AnswerTwo;
             AnswerThree = questionDTO.AnswerThree;
+            CorrectAnswer = questionDTO.CorrectAnswer;
+            ImageUrl = questionDTO.ImageUrl;
         }
     }
 }

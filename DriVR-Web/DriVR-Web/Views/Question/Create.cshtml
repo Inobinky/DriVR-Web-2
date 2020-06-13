@@ -5,31 +5,40 @@
 }
 
 <h1>Vraag aanmaken</h1>
-<h3>Vraag Entry</h3>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="QuestionText" class="control-label"></label>
+                Vraagtekst
                 <input asp-for="QuestionText" class="form-control" />
                 <span asp-validation-for="QuestionText" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AnswerOne" class="control-label"></label>
+                Antwoord 1
                 <input asp-for="AnswerOne" class="form-control" />
                 <span asp-validation-for="AnswerOne" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AnswerTwo" class="control-label"></label>
+                Antwoord 2
                 <input asp-for="AnswerTwo" class="form-control" />
                 <span asp-validation-for="AnswerTwo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AnswerThree" class="control-label"></label>
+                Antwoord 3
                 <input asp-for="AnswerThree" class="form-control" />
                 <span asp-validation-for="AnswerThree" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Nummer van het juiste antwoord
+                <input asp-for="CorrectAnswer" class="form-control" />
+                <span asp-validation-for="CorrectAnswer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Afbeelding URL
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Vraag aanmaken" />

@@ -82,5 +82,11 @@ namespace DriVR_Web.Controllers
             QuestionDal.DeleteQuestion(id);
             return RedirectToAction("Overview");
         }
+
+        public IActionResult QuestionSession()
+        {
+            List<Question> result = new List<Question>(questionContainer.GetAllQuestions());
+            return View(result);
+        }
     }
 }

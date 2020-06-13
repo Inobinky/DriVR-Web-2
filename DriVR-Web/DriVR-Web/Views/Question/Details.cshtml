@@ -12,7 +12,13 @@
                 <u>Vraag tekst:</u>
             </dt>
             <dt>
-                @Html.DisplayFor(model => model.QuestionText)
+                @Model.QuestionText
+            </dt>
+            <dt>
+                <u>Afbeelding URL:</u>
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.ImageUrl)
             </dt>
             <dt>
                 <u>Antwoord 1:</u>
@@ -21,7 +27,7 @@
                 @Html.DisplayFor(model => model.AnswerOne)
             </dt>
             <dt>
-                <u>Antwoord 2</u>
+                <u>Antwoord 2:</u>
             </dt>
             <dt>
                 @Html.DisplayFor(model => model.AnswerTwo)
@@ -31,6 +37,12 @@
             </dt>
             <dt>
                 @Html.DisplayFor(model => model.AnswerThree)
+            </dt>
+            <dt>
+                <u>Nummer van het juiste antwoord:</u>
+            </dt>
+            <dt>
+                @Html.DisplayFor(model => model.QuestionText)
             </dt>
         </dl>
     </div>

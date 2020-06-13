@@ -6,20 +6,16 @@ using System.Threading.Tasks;
 
 namespace DriVR_Web.Data
 {
-    public struct QuestionDTO
+    public struct QuestionSessionDTO
     {
         public int ID;
         [Required]
-        public string QuestionText;
+        public int UserID;
         [Required]
-        public string AnswerOne;
+        public int AmountCorrect;
         [Required]
-        public string AnswerTwo;
+        public int AmountWrong;
         [Required]
-        public string AnswerThree;
-        [Required]
-        public int CorrectAnswer;
-        [Required]
-        public string ImageUrl;
+        public DateTime DateFinished;
     }
 }

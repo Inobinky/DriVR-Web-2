@@ -29,6 +29,9 @@
                     Vraag tekst
                 </th>
                 <th>
+                    Afbeelding
+                </th>
+                <th>
                     Antwoord 1
                 </th>
                 <th>
@@ -42,25 +45,28 @@
         <tbody>
             @foreach (var question in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => question.QuestionText)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => question.AnswerOne)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => question.AnswerTwo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => question.AnswerThree)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@question.ID">Wijzigen</a>
-                        <a asp-action="Details" asp-route-id="@question.ID">Details</a>
-                        <a asp-action="Delete" asp-route-id="@question.ID">Verwijder</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => question.QuestionText)
+                </td>
+                <td>
+                    <a href="@Html.DisplayFor(modelItem => question.ImageUrl)" target="_blank">Bekijken</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => question.AnswerOne)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => question.AnswerTwo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => question.AnswerThree)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@question.ID">Wijzigen</a>
+                    <a asp-action="Details" asp-route-id="@question.ID">Details</a>
+                    <a asp-action="Delete" asp-route-id="@question.ID">Verwijder</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

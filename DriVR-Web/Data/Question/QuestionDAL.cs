@@ -30,6 +30,8 @@ namespace DriVR_Web.Data
                     question.AnswerOne = dr["AnswerOne"].ToString();
                     question.AnswerTwo = dr["AnswerTwo"].ToString();
                     question.AnswerThree = dr["AnswerThree"].ToString();
+                    question.CorrectAnswer = Convert.ToInt32(dr["CorrectAnswer"].ToString());
+                    question.ImageUrl = dr["ImageUrl"].ToString();
 
                     questionList.Add(question);
                 }
@@ -50,6 +52,8 @@ namespace DriVR_Web.Data
                 cmd.Parameters.AddWithValue("@AnswerOne", question.AnswerOne);
                 cmd.Parameters.AddWithValue("@AnswerTwo", question.AnswerTwo);
                 cmd.Parameters.AddWithValue("@AnswerThree", question.AnswerThree);
+                cmd.Parameters.AddWithValue("@CorrectAnswer", question.CorrectAnswer);
+                cmd.Parameters.AddWithValue("@ImageUrl", question.ImageUrl);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -70,6 +74,8 @@ namespace DriVR_Web.Data
                 cmd.Parameters.AddWithValue("@AnswerOne", question.AnswerOne);
                 cmd.Parameters.AddWithValue("@AnswerTwo", question.AnswerTwo);
                 cmd.Parameters.AddWithValue("@AnswerThree", question.AnswerThree);
+                cmd.Parameters.AddWithValue("@CorrectAnswer", question.CorrectAnswer);
+                cmd.Parameters.AddWithValue("@ImageUrl", question.ImageUrl);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -112,6 +118,8 @@ namespace DriVR_Web.Data
                     question.AnswerOne = dr["AnswerOne"].ToString();
                     question.AnswerTwo = dr["AnswerTwo"].ToString();
                     question.AnswerThree = dr["AnswerThree"].ToString();
+                    question.CorrectAnswer = Convert.ToInt32(dr["CorrectAnswer"].ToString());
+                    question.ImageUrl = dr["ImageUrl"].ToString();
                 }
                 con.Close();
             }

@@ -5,16 +5,22 @@
 }
 
 <h1>Vraag wijzigen</h1>
+<p>Let op dat u alle velden opnieuw moet invullen.</p>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ID"/>
+            <input type="hidden" asp-for="ID" />
 
             <div class="form-group">
                 <label asp-for="QuestionText" class="control-label">Vraag tekst</label>
                 <input asp-for="QuestionText" class="form-control" />
+                <span asp-validation-for="QuestionText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl" class="control-label">Afbeelding URL</label>
+                <input asp-for="ImageUrl" class="form-control" />
                 <span asp-validation-for="QuestionText" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -31,6 +37,11 @@
                 <label asp-for="AnswerThree" class="control-label">Antwoord 3</label>
                 <input asp-for="AnswerThree" class="form-control" />
                 <span asp-validation-for="AnswerThree" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CorrectAnswer" class="control-label">Nummer van het juiste antwoord</label>
+                <input asp-for="CorrectAnswer" class="form-control" />
+                <span asp-validation-for="CorrectAnswer" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Opslaan" class="btn btn-success" />

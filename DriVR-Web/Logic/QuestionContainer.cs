@@ -40,6 +40,8 @@ namespace DriVR_Web.Logic
             dto.AnswerOne = questionDTO.AnswerOne;
             dto.AnswerTwo = questionDTO.AnswerTwo;
             dto.AnswerThree = questionDTO.AnswerThree;
+            dto.CorrectAnswer = questionDTO.CorrectAnswer;
+            dto.ImageUrl = questionDTO.ImageUrl;
             iQuestionDal.AddQuestion(dto);
         }
 
@@ -51,6 +53,8 @@ namespace DriVR_Web.Logic
             questionDTO.AnswerOne = question.AnswerOne;
             questionDTO.AnswerTwo = question.AnswerTwo;
             questionDTO.AnswerThree = question.AnswerThree;
+            questionDTO.CorrectAnswer = question.CorrectAnswer;
+            questionDTO.ImageUrl = question.ImageUrl;
             iQuestionDal.UpdateQuestion(questionDTO);
         }
     }
