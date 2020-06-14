@@ -13,8 +13,7 @@ namespace DriVR_Web.Controllers
 
         public IActionResult QuestionSessionStart()
         {
-            List<Question> result = new List<Question>(questionContainer.GetAllQuestions());
-            return View(result);
+            return View();
         }
     }
 }

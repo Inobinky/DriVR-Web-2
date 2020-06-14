@@ -21,5 +21,7 @@ namespace DriVR_Web.Data
         public int CorrectAnswer;
         [Required]
         public string ImageUrl;
+        [Required]
+        public int ChosenAnswer;
     }
 }

@@ -1,6 +1,6 @@
-﻿@model IEnumerable<DriVR_Web.Logic.Question>
+﻿@model DriVR_Web.Logic.Question;
 @{
-    ViewBag.Title = "Question Session Start";
+    ViewBag.Title = "Nieuwe vragen sessie gestart!";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,66 +14,11 @@
 
 <body>
     <h1>
-        Nieuwe vragen sessie gestart!
+        Klaar om een nieuwe vragensessie te beginnen?
     </h1>
 
     <p>Veel succes!</p>
-
-    <form asp-action="FinishSession">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>
-                        Vraag tekst
-                    </th>
-                    <th>
-                        Afbeelding
-                    </th>
-                    <th>
-                        Antwoord 1
-                    </th>
-                    <th>
-                        Antwoord 2
-                    </th>
-                    <th>
-                        Antwoord 3
-                    </th>
-                    <th>
-                        Jouw antwoord
-                    </th>
-                </tr>
-            </thead>
-
-            <tbody>
-                @foreach (var question in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => question.QuestionText)
-                        </td>
-                        <td>
-                            <a href="@Html.DisplayFor(modelItem => question.ImageUrl)" target="_blank">Bekijken</a>
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => question.AnswerOne)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => question.AnswerTwo)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => question.AnswerThree)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@question.ID">Wijzigen</a><br />
-                            <a asp-action="Details" asp-route-id="@question.ID">Details</a><br />
-                            <p><a asp-action="Delete" asp-route-id="@question.ID">Verwijder</a></p>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </form>
+    <br />
+    <a asp-action="AnswerQuestion" asp-route-id="@Model.ID">Start vragensessie</a>
 </body>
 </html>

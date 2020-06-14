@@ -32,6 +32,7 @@ namespace DriVR_Web.Data
                     question.AnswerThree = dr["AnswerThree"].ToString();
                     question.CorrectAnswer = Convert.ToInt32(dr["CorrectAnswer"].ToString());
                     question.ImageUrl = dr["ImageUrl"].ToString();
+                    question.ChosenAnswer = Convert.ToInt32(dr["ChosenAnswer"].ToString());
 
                     questionList.Add(question);
                 }
@@ -54,6 +55,7 @@ namespace DriVR_Web.Data
                 cmd.Parameters.AddWithValue("@AnswerThree", question.AnswerThree);
                 cmd.Parameters.AddWithValue("@CorrectAnswer", question.CorrectAnswer);
                 cmd.Parameters.AddWithValue("@ImageUrl", question.ImageUrl);
+                cmd.Parameters.AddWithValue("@ChosenAnswer", question.ChosenAnswer);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -76,6 +78,24 @@ namespace DriVR_Web.Data
                 cmd.Parameters.AddWithValue("@AnswerThree", question.AnswerThree);
                 cmd.Parameters.AddWithValue("@CorrectAnswer", question.CorrectAnswer);
                 cmd.Parameters.AddWithValue("@ImageUrl", question.ImageUrl);
+                cmd.Parameters.AddWithValue("@ChosenAnswer", question.ChosenAnswer);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        // To update question
+        public void AnswerQuestion(QuestionDTO question)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SP_AnswerQuestion", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@QuestionId", question.ID);
+                cmd.Parameters.AddWithValue("@ChosenAnswer", question.ChosenAnswer);
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -120,6 +140,7 @@ namespace DriVR_Web.Data
                     question.AnswerThree = dr["AnswerThree"].ToString();
                     question.CorrectAnswer = Convert.ToInt32(dr["CorrectAnswer"].ToString());
                     question.ImageUrl = dr["ImageUrl"].ToString();
+                    question.ChosenAnswer = Convert.ToInt32(dr["ChosenAnswer"].ToString());
                 }
                 con.Close();
             }

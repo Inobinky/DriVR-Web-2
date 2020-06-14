@@ -22,6 +22,8 @@ namespace DriVR_Web.Logic
         public int CorrectAnswer { get; set; }
         [Required]
         public string ImageUrl { get; set; }
+        [Required]
+        public int ChosenAnswer { get; set; }
 
         public Question() { } // Default constructor
 
@@ -34,6 +36,7 @@ namespace DriVR_Web.Logic
             AnswerThree = questionDTO.AnswerThree;
             CorrectAnswer = questionDTO.CorrectAnswer;
             ImageUrl = questionDTO.ImageUrl;
+            ChosenAnswer = questionDTO.ChosenAnswer;
         }
     }
 }

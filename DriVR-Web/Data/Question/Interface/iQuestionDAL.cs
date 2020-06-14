@@ -8,6 +8,7 @@ namespace DriVR_Web.Data.Interface
     {
         public void AddQuestion(QuestionDTO question);
         public void UpdateQuestion(QuestionDTO question);
+        public void AnswerQuestion(QuestionDTO question);
         public void DeleteQuestion(int? questionId);
     }
 }

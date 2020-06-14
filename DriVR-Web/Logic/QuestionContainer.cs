@@ -42,6 +42,7 @@ namespace DriVR_Web.Logic
             dto.AnswerThree = questionDTO.AnswerThree;
             dto.CorrectAnswer = questionDTO.CorrectAnswer;
             dto.ImageUrl = questionDTO.ImageUrl;
+            dto.ChosenAnswer = questionDTO.ChosenAnswer;
             iQuestionDal.AddQuestion(dto);
         }
 
@@ -55,6 +56,21 @@ namespace DriVR_Web.Logic
             questionDTO.AnswerThree = question.AnswerThree;
             questionDTO.CorrectAnswer = question.CorrectAnswer;
             questionDTO.ImageUrl = question.ImageUrl;
+            questionDTO.ChosenAnswer = question.ChosenAnswer;
+            iQuestionDal.UpdateQuestion(questionDTO);
+        }
+
+        public void AnswerQuestion(Question question)
+        {
+            QuestionDTO questionDTO;
+            questionDTO.ID = question.ID;
+            questionDTO.QuestionText = question.QuestionText;
+            questionDTO.AnswerOne = question.AnswerOne;
+            questionDTO.AnswerTwo = question.AnswerTwo;
+            questionDTO.AnswerThree = question.AnswerThree;
+            questionDTO.CorrectAnswer = question.CorrectAnswer;
+            questionDTO.ImageUrl = question.ImageUrl;
+            questionDTO.ChosenAnswer = question.ChosenAnswer;
             iQuestionDal.UpdateQuestion(questionDTO);
         }
     }

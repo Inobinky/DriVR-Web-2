@@ -1,0 +1,67 @@
+﻿@model DriVR_Web.Logic.Question;
+@{
+    ViewData["Title"] = "Vraag beantwoorden";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Vraag beantwoorden</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AnswerQuestion">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+
+            <dl class="dl-horizontal">
+                <dt>
+                    <u>Vraag:</u>
+                </dt>
+                <dt>
+                    @Html.DisplayFor(model => model.QuestionText)
+                </dt>
+                <dt>
+                    <a href="@Html.DisplayFor(model => model.ImageUrl)">Afbeelding bekijken</a>
+                </dt>
+                <dt>
+                    <u>Antwoord 1:</u>
+                </dt>
+                <dt>
+                    @Html.DisplayFor(model => model.AnswerOne)
+                </dt>
+                <dt>
+                    <u>Antwoord 2:</u>
+                </dt>
+                <dt>
+                    @Html.DisplayFor(model => model.AnswerTwo)
+                </dt>
+                <dt>
+                    <u>Antwoord 3:</u>
+                </dt>
+                <dt>
+                    @Html.DisplayFor(model => model.AnswerThree)
+                </dt>
+                <dt>
+                    <u>Nummer van het juiste antwoord:</u>
+                </dt>
+                <dt>
+                    @Html.DisplayFor(model => model.QuestionText)
+                </dt>
+            </dl>
+
+            <div class="form-group">
+                <label asp-for="ChosenAnswer" class="control-label">Jouw gekozen antwoord</label>
+                <input asp-for="ChosenAnswer" class="form-control" />
+                <span asp-validation-for="ChosenAnswer" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Door naar volgende vraag" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

@@ -15,7 +15,8 @@
 <body>
     <h1>Vragen overzicht</h1>
 
-    <p><a asp-action="Create">Nieuwe vraag aanmaken</a></p>
+    <p><a asp-action="Create">Nieuwe vraag aanmaken</a>
+    <p>Klaar om een nieuwe vragensessie te beginnen? Klik <a asp-action="AnswerQuestion" asp-route-id="@Model.ElementAt(0).ID">hier</a> om een nieuwe vragensessie te starten!</p>
 
     @*For displaying question info*@
     <table class="table table-striped">
