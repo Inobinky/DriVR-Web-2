@@ -2,13 +2,14 @@
 @{
     ViewData["Title"] = "Vraag beantwoorden";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int nextQuestionId = Model.ID;
 }
 
 <h1>Vraag beantwoorden</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="AnswerQuestion">
+        <form asp-action="AnswerQuestion" asp-route-id="@Model.ID">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
 
@@ -20,7 +21,7 @@
                     @Html.DisplayFor(model => model.QuestionText)
                 </dt>
                 <dt>
-                    <a href="@Html.DisplayFor(model => model.ImageUrl)">Afbeelding bekijken</a>
+                    <a href="@Html.DisplayFor(model => model.ImageUrl)" target="_blank">Afbeelding bekijken</a>
                 </dt>
                 <dt>
                     <u>Antwoord 1:</u>

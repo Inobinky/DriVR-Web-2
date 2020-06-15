@@ -73,12 +73,9 @@ namespace DriVR_Web.Controllers
         public IActionResult AnswerQuestion(int? id, [Bind] Question question)
         {
             if (id == null) { return NotFound(); }
-            if (ModelState.IsValid)
-            {
-                questionContainer.AnswerQuestion(question);
-                return RedirectToAction("AnswerQuestion");
-            }
-            return View(QuestionDal);
+            questionContainer.AnswerQuestion(question);
+            question = new Question(iQuestionContainerDal.GetQuestionById(id + 1));
+            return View(question);
         }
 
         public IActionResult QuestionSessionStart()
