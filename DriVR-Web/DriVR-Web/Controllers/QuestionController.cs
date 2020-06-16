@@ -63,7 +63,7 @@ namespace DriVR_Web.Controllers
         public IActionResult AnswerCurrentQuestion(Question question)
         {
             questionContainer.AnswerQuestion(question);
-            return RedirectToAction("AnswerQuestion", new { id = question.ID });
+            return RedirectToAction("AnswerQuestion", new { id = question.ID + 1 });
         }
 
         [HttpGet]
@@ -71,16 +71,6 @@ namespace DriVR_Web.Controllers
         {
             if (id == null) { return NotFound(); }
             Question question = new Question(iQuestionContainerDal.GetQuestionById(id));
-            return View(question);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult AnswerQuestion(int? id, [Bind] Question question)
-        {
-            if (id == null) { return NotFound(); }
-            questionContainer.AnswerQuestion(question);
-            question = new Question(iQuestionContainerDal.GetQuestionById(id + 1));
             return View(question);
         }
 

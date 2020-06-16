@@ -2,7 +2,6 @@
 @{
     ViewData["Title"] = "Vraag beantwoorden";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    int nextQuestionId = Model.ID;
 }
 
 <h1>Vraag beantwoorden</h1>
@@ -56,7 +55,6 @@
             </div>
 
             <div class="form-group">
-                @Html.ActionLink("Antwoord bevestigen", "AnswerCurrentQuestion", "Question", Model)
                 <input type="submit" value="Door naar volgende vraag" class="btn btn-success" />
             </div>
         </form>

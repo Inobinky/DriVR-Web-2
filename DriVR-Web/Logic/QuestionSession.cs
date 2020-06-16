@@ -9,9 +9,6 @@ namespace DriVR_Web.Logic
 {
     public class QuestionSession
     {
-        iQuestionContainerDAL iQuestionContainerDal;
-        iQuestionDAL iQuestionDal;
-
         public int ID { get; set; }
         [Required]
         public int UserID { get; set; }
