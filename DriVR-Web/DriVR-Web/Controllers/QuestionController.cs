@@ -60,6 +60,12 @@ namespace DriVR_Web.Controllers
             return View(QuestionDal);
         }
 
+        public IActionResult AnswerCurrentQuestion(Question question)
+        {
+            questionContainer.AnswerQuestion(question);
+            return RedirectToAction("AnswerQuestion", new { id = question.ID });
+        }
+
         [HttpGet]
         public IActionResult AnswerQuestion(int? id)
         {
