@@ -31,14 +31,14 @@ namespace DriVR_Web.Logic
             return result;
         }
 
-        public void AddQuestionSession(QuestionSession questionDTO)
+        public void AddQuestionSession(QuestionSession questionSession)
         {
             QuestionSessionDTO dto;
-            dto.ID = questionDTO.ID;
-            dto.UserID = questionDTO.UserID;
-            dto.AmountCorrect = questionDTO.AmountCorrect;
-            dto.AmountWrong = questionDTO.AmountWrong;
-            dto.DateFinished = questionDTO.DateFinished;
+            dto.ID = questionSession.ID;
+            dto.UserID = questionSession.UserID;
+            dto.AmountCorrect = questionSession.AmountCorrect;
+            dto.AmountWrong = questionSession.AmountWrong;
+            dto.DateFinished = questionSession.DateFinished;
             iQuestionSessionDal.AddQuestionSession(dto);
         }
 
