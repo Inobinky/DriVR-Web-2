@@ -5,6 +5,7 @@ using System.Linq;
 using DriVR_Web.Data;
 using DriVR_Web.Logic;
 using DriVR_Web.Data.Interface;
+using System;
 
 namespace DriVR_Web.Controllers
 {
@@ -71,6 +72,9 @@ namespace DriVR_Web.Controllers
 
             if (nextQuestionIndex > (questionList.Count - 1))
             {
+                QuestionSession questionSession = new QuestionSession();
+                questionSession.DateFinished = DateTime.Now;
+                questionSessionContainer.AddQuestionSession(questionSession);
                 return RedirectToAction("Overview");
             }
             else

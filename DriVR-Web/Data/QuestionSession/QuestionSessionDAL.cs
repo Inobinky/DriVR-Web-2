@@ -43,10 +43,10 @@ namespace DriVR_Web.Data
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("SP_InsertQuestion", con);
+                SqlCommand cmd = new SqlCommand("SP_InsertQuestionSession", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@UserId", questionSession.UserID);
+                cmd.Parameters.AddWithValue("@UserId", 2);
                 cmd.Parameters.AddWithValue("@AmountCorrect", questionSession.AmountCorrect);
                 cmd.Parameters.AddWithValue("@AmountWrong", questionSession.AmountWrong);
                 cmd.Parameters.AddWithValue("@DateFinished", questionSession.DateFinished);
