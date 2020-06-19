@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using DriVR_Web.Data.Interface;
+using DriVR_Web.Interface;
 
 namespace DriVR_Web.Data 
 {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DriVR_Web.Data;
 using DriVR_Web.Logic;
-using DriVR_Web.Data.Interface;
+using DriVR_Web.Interface;
 using System;
 
 namespace DriVR_Web.Controllers
