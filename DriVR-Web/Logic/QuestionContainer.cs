@@ -11,6 +11,9 @@ namespace DriVR_Web.Logic
         iQuestionContainerDAL iQuestionContainerDal = new QuestionDAL();
         iQuestionDAL iQuestionDal = new QuestionDAL();
 
+        iQuestionSessionContainerDAL iQuestionSessionContainerDal = new QuestionSessionDAL();
+        iQuestionSessionDAL iQuestionSessionDal = new QuestionSessionDAL();
+
         public List<Question> GetAllQuestions()
         {
             List<Question> result = new List<Question>();
@@ -62,8 +65,6 @@ namespace DriVR_Web.Logic
 
         public void AnswerQuestion(Question question)
         {
-            //TODO: maak nieuwe bool. en maak nieuwe int, doe die ++ bij elke keer dat deze method opgeroepen wordt. Check elke keer of die int groter is dan GetAllQuestions(). Zo ja, zet dan de int weer op 0. en voer vervolgens de opkomende method uit voor het opslaan van een nieuwe sessie.
-
             QuestionDTO questionDTO;
             questionDTO.ID = question.ID;
             questionDTO.QuestionText = question.QuestionText;

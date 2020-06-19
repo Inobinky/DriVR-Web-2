@@ -1,0 +1,55 @@
+﻿@using DriVR_Web.Logic;
+
+@{
+    ViewBag.Title = "Overview";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<Question> questions = ViewData["Questions"] as IEnumerable<Question>;
+    IEnumerable<QuestionSession> questionSessions = ViewData["QuestionSessions"] as IEnumerable<QuestionSession>;
+    int modelCount = 0;
+}
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vragensessies overzicht</title>
+</head>
+
+<body>
+    <h1>Voltooide vragensessies overzicht</h1>
+
+    <p><a asp-action="Overview">Naar vragenoverzicht</a></p>
+
+    @*For displaying question info*@
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Vragensessie nr.
+                </th>
+                <th>
+                    Voltooid op
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var questionSession in questionSessions)
+            {
+            <tr>
+                <td>
+                    @{modelCount++;}
+                    @modelCount
+                </td>
+                <td>
+                    @questionSession.DateFinished
+                </td>
+                <td>
+                    <a asp-action="AnsweredQuestionsOverview">Bekijken</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

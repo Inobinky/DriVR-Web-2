@@ -25,7 +25,7 @@ namespace DriVR_Web.Data
                 {
                     QuestionSessionDTO questionSession = new QuestionSessionDTO();
 
-                    questionSession.ID = Convert.ToInt32(dr["QuestionId"].ToString());
+                    questionSession.ID = Convert.ToInt32(dr["ID"].ToString());
                     questionSession.UserID = Convert.ToInt32(dr["UserId"].ToString());
                     questionSession.AmountCorrect = Convert.ToInt32(dr["AmountCorrect"].ToString());
                     questionSession.AmountWrong = Convert.ToInt32(dr["AmountWrong"].ToString());

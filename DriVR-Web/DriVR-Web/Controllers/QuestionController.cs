@@ -12,7 +12,10 @@ namespace DriVR_Web.Controllers
     {
         QuestionDAL QuestionDal = new QuestionDAL();
         QuestionContainer questionContainer = new QuestionContainer();
+        QuestionSessionContainer questionSessionContainer = new QuestionSessionContainer();
+
         iQuestionContainerDAL iQuestionContainerDal = new QuestionDAL();
+        iQuestionSessionContainerDAL iQuestionSessionContainerDal = new QuestionSessionDAL();
 
         public IActionResult Overview()
         {
@@ -62,21 +65,52 @@ namespace DriVR_Web.Controllers
 
         public IActionResult AnswerCurrentQuestion(Question question)
         {
-            questionContainer.AnswerQuestion(question);
-            return RedirectToAction("AnswerQuestion", new { id = question.ID + 1 });
+            int questionIndex = iQuestionContainerDal.GetAllQuestions().FindIndex(a => a.ID == question.ID);
+            int nextQuestionIndex = questionIndex + 1;
+            List<Question> questionList = new List<Question>(questionContainer.GetAllQuestions());
+
+            if (nextQuestionIndex > (questionList.Count - 1))
+            {
+                return RedirectToAction("Overview");
+            }
+            else
+            {
+                Question nextQuestion = questionList.ElementAt(nextQuestionIndex);
+                questionContainer.AnswerQuestion(question);
+                return RedirectToAction("AnswerQuestion", new { id = nextQuestion.ID });
+            }
         }
 
         [HttpGet]
         public IActionResult AnswerQuestion(int? id)
         {
             if (id == null) { return NotFound(); }
-            Question question = new Question(iQuestionContainerDal.GetQuestionById(id));
+            Question question = new Question(iQuestionContainerDal.GetQuestionById(id)); // TODO: change to connecting with logic layer
+            int questionIndex = iQuestionContainerDal.GetAllQuestions().FindIndex(a => a.ID == question.ID); // TODO: change to connecting with logic layer
+
+            if (questionIndex == -1)
+            {
+                return RedirectToAction("Overview");
+            }
             return View(question);
         }
 
         public IActionResult QuestionSessionStart()
         {
             return View();
+        }
+
+        public IActionResult QuestionSessionOverview()
+        {
+            ViewData["Questions"] = questionContainer.GetAllQuestions();
+            ViewData["QuestionSessions"] = questionSessionContainer.GetAllQuestionSessions();
+            return View("~/Views/QuestionSession/QuestionSessionOverview.cshtml");
+        }
+
+        public IActionResult AnsweredQuestionsOverview()
+        {
+            ViewData["Questions"] = questionContainer.GetAllQuestions();
+            return View("~/Views/QuestionSession/AnsweredQuestionsOverview.cshtml");
         }
 
         [HttpGet]
