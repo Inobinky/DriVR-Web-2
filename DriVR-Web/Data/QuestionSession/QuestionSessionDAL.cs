@@ -10,7 +10,6 @@ namespace DriVR_Web.Data
     {
         private string connectionString = @"Data Source=(localdb)\LocalDBDrivr;Initial Catalog=DrivrDBLocal;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        // To get all questions
         public List<QuestionSessionDTO> GetAllQuestionSessions()
         {
             List<QuestionSessionDTO> questionList = new List<QuestionSessionDTO>();
@@ -25,7 +24,7 @@ namespace DriVR_Web.Data
                 {
                     QuestionSessionDTO questionSession = new QuestionSessionDTO();
 
-                    questionSession.ID = Convert.ToInt32(dr["QuestionId"].ToString());
+                    questionSession.ID = Convert.ToInt32(dr["ID"].ToString());
                     questionSession.UserID = Convert.ToInt32(dr["UserId"].ToString());
                     questionSession.AmountCorrect = Convert.ToInt32(dr["AmountCorrect"].ToString());
                     questionSession.AmountWrong = Convert.ToInt32(dr["AmountWrong"].ToString());
@@ -38,15 +37,14 @@ namespace DriVR_Web.Data
             return questionList;
         }
 
-        // To insert questionSession
         public void AddQuestionSession(QuestionSessionDTO questionSession)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("SP_InsertQuestion", con);
+                SqlCommand cmd = new SqlCommand("SP_InsertQuestionSession", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@UserId", questionSession.UserID);
+                cmd.Parameters.AddWithValue("@UserId", 2);
                 cmd.Parameters.AddWithValue("@AmountCorrect", questionSession.AmountCorrect);
                 cmd.Parameters.AddWithValue("@AmountWrong", questionSession.AmountWrong);
                 cmd.Parameters.AddWithValue("@DateFinished", questionSession.DateFinished);
@@ -57,7 +55,6 @@ namespace DriVR_Web.Data
             }
         }
 
-        // To update questionSession
         public void UpdateQuestionSession(QuestionSessionDTO questionSession)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -77,7 +74,6 @@ namespace DriVR_Web.Data
             }
         }
 
-        // To update questionSession
         public void DeleteQuestionSession(int? questionId)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -93,7 +89,6 @@ namespace DriVR_Web.Data
             }
         }
 
-        // Get questionSession by Id
         public QuestionSessionDTO GetQuestionSessionById(int? questionId)
         {
             QuestionSessionDTO questionSession = new QuestionSessionDTO();

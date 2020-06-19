@@ -10,8 +10,7 @@ namespace DriVR_Web.Logic
     {
         iQuestionContainerDAL iQuestionContainerDal = new QuestionDAL();
         iQuestionDAL iQuestionDal = new QuestionDAL();
-        QuestionDTO questionDTO;
-
+        
         public List<Question> GetAllQuestions()
         {
             List<Question> result = new List<Question>();
@@ -26,24 +25,25 @@ namespace DriVR_Web.Logic
             return result;
         }
 
+
         public Question GetQuestionById(int? questionId)
         {
             Question result = new Question(iQuestionContainerDal.GetQuestionById(questionId));
             return result;
         }
 
-        public void AddQuestion(Question questionDTO)
+        public void AddQuestion(Question question)
         {
-            QuestionDTO dto;
-            dto.ID = questionDTO.ID;
-            dto.QuestionText = questionDTO.QuestionText;
-            dto.AnswerOne = questionDTO.AnswerOne;
-            dto.AnswerTwo = questionDTO.AnswerTwo;
-            dto.AnswerThree = questionDTO.AnswerThree;
-            dto.CorrectAnswer = questionDTO.CorrectAnswer;
-            dto.ImageUrl = questionDTO.ImageUrl;
-            dto.ChosenAnswer = questionDTO.ChosenAnswer;
-            iQuestionDal.AddQuestion(dto);
+            QuestionDTO questionDTO;
+            questionDTO.ID = question.ID;
+            questionDTO.QuestionText = question.QuestionText;
+            questionDTO.AnswerOne = question.AnswerOne;
+            questionDTO.AnswerTwo = question.AnswerTwo;
+            questionDTO.AnswerThree = question.AnswerThree;
+            questionDTO.CorrectAnswer = question.CorrectAnswer;
+            questionDTO.ImageUrl = question.ImageUrl;
+            questionDTO.ChosenAnswer = question.ChosenAnswer;
+            iQuestionDal.AddQuestion(questionDTO);
         }
 
         public void UpdateQuestion(Question question)
@@ -71,7 +71,7 @@ namespace DriVR_Web.Logic
             questionDTO.CorrectAnswer = question.CorrectAnswer;
             questionDTO.ImageUrl = question.ImageUrl;
             questionDTO.ChosenAnswer = question.ChosenAnswer;
-            iQuestionDal.UpdateQuestion(questionDTO);
+            iQuestionDal.AnswerQuestion(questionDTO);
         }
     }
 }
