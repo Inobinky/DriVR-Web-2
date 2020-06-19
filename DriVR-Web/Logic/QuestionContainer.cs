@@ -10,10 +10,7 @@ namespace DriVR_Web.Logic
     {
         iQuestionContainerDAL iQuestionContainerDal = new QuestionDAL();
         iQuestionDAL iQuestionDal = new QuestionDAL();
-
-        iQuestionSessionContainerDAL iQuestionSessionContainerDal = new QuestionSessionDAL();
-        iQuestionSessionDAL iQuestionSessionDal = new QuestionSessionDAL();
-
+        
         public List<Question> GetAllQuestions()
         {
             List<Question> result = new List<Question>();

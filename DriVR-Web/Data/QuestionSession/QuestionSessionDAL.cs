@@ -10,7 +10,6 @@ namespace DriVR_Web.Data
     {
         private string connectionString = @"Data Source=(localdb)\LocalDBDrivr;Initial Catalog=DrivrDBLocal;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        // To get all questions
         public List<QuestionSessionDTO> GetAllQuestionSessions()
         {
             List<QuestionSessionDTO> questionList = new List<QuestionSessionDTO>();
@@ -38,7 +37,6 @@ namespace DriVR_Web.Data
             return questionList;
         }
 
-        // To insert questionSession
         public void AddQuestionSession(QuestionSessionDTO questionSession)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -57,7 +55,6 @@ namespace DriVR_Web.Data
             }
         }
 
-        // To update questionSession
         public void UpdateQuestionSession(QuestionSessionDTO questionSession)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -77,7 +74,6 @@ namespace DriVR_Web.Data
             }
         }
 
-        // To update questionSession
         public void DeleteQuestionSession(int? questionId)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -93,7 +89,6 @@ namespace DriVR_Web.Data
             }
         }
 
-        // Get questionSession by Id
         public QuestionSessionDTO GetQuestionSessionById(int? questionId)
         {
             QuestionSessionDTO questionSession = new QuestionSessionDTO();

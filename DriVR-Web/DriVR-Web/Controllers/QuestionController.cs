@@ -66,7 +66,7 @@ namespace DriVR_Web.Controllers
 
         public IActionResult AnswerCurrentQuestion(Question question)
         {
-            int questionIndex = iQuestionContainerDal.GetAllQuestions().FindIndex(a => a.ID == question.ID);
+            int questionIndex = questionContainer.GetAllQuestions().FindIndex(a => a.ID == question.ID);
             int nextQuestionIndex = questionIndex + 1;
             List<Question> questionList = new List<Question>(questionContainer.GetAllQuestions());
 
@@ -89,8 +89,8 @@ namespace DriVR_Web.Controllers
         public IActionResult AnswerQuestion(int? id)
         {
             if (id == null) { return NotFound(); }
-            Question question = new Question(iQuestionContainerDal.GetQuestionById(id)); // TODO: change to connecting with logic layer
-            int questionIndex = iQuestionContainerDal.GetAllQuestions().FindIndex(a => a.ID == question.ID); // TODO: change to connecting with logic layer
+            Question question = questionContainer.GetQuestionById(id);
+            int questionIndex = questionContainer.GetAllQuestions().FindIndex(a => a.ID == question.ID);
 
             if (questionIndex == -1)
             {
