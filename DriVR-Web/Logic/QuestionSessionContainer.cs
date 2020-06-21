@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using DriVR_Web.Data;
-using DriVR_Web.Data.Interface;
+using DriVR_Web.Interface;
 
 namespace DriVR_Web.Logic
 {
@@ -10,6 +10,11 @@ namespace DriVR_Web.Logic
     {
         iQuestionSessionContainerDAL iQuestionSessionContainerDal = new QuestionSessionDAL();
         iQuestionSessionDAL iQuestionSessionDal = new QuestionSessionDAL();
+
+        public QuestionSessionContainer() { } // Default constructor
+
+        public QuestionSessionContainer(iQuestionSessionContainerDAL iquestionContainerDal, iQuestionSessionDAL iquestionDAL) { }
+
 
         public List<QuestionSession> GetAllQuestionSessions()
         {

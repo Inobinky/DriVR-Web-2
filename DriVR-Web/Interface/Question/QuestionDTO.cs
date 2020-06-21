@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DriVR_Web.Data
+namespace DriVR_Web.Interface
 {
     public struct QuestionDTO
     {

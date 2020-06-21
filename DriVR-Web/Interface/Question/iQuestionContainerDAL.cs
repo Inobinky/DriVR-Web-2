@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DriVR_Web.Data.Interface
+namespace DriVR_Web.Interface
 {
     public interface iQuestionContainerDAL
     {
