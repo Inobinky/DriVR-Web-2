@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using DriVR_Web.Interface;
 
-namespace DriVR_Web.Data 
+namespace DriVR_Web.Data
 {
     public class QuestionDAL : iQuestionDAL, iQuestionContainerDAL
     {
@@ -148,5 +148,15 @@ namespace DriVR_Web.Data
             return question;
         }
 
+        public bool Exists(int? questionId)
+        {
+            var sql = $"SELECT * FROM dbo.Question WHERE QuestionId = '{questionId}'";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(sql, con);
+                string result = cmd.ExecuteScalar().ToString().Trim();
+                return questionId.Equals(result);
+            }
+        }
     }
 }

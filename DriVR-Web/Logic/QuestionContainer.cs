@@ -10,6 +10,10 @@ namespace DriVR_Web.Logic
     {
         iQuestionContainerDAL iQuestionContainerDal = new QuestionDAL();
         iQuestionDAL iQuestionDal = new QuestionDAL();
+
+        public QuestionContainer() { } // Default constructor
+        
+        public QuestionContainer(iQuestionContainerDAL iquestionContainerDal, iQuestionDAL iquestionDAL) { }
         
         public List<Question> GetAllQuestions()
         {
